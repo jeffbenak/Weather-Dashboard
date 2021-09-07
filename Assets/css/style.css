@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+  }
+
+
+
+h1 {
+    text-align: center;
+    background: linear-gradient(0deg, rgb(64, 207, 100) 0%, rgb(0, 0, 0) 63%);
+    color: #ffffff;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -8px;
+    height: 60px;  
+    line-height: 60px; 
+}
+
+#Search {
+    font-size: 32px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 3px;
+}
+
+#city {
+    width: 350px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+#city:hover {
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(72, 114, 252) 110%);
+}
+
+
+.btn {
+    width: 350px;
+    height:35px;
+    margin-top: 15px;
+    display: block;
+    background: radial-gradient(circle, rgb(64, 207, 100) 0%, rgb(0, 0, 0) 110%);
+    color: white;
+    border-radius: 8px;
+}
+
+#line {
+    width: 23%;
+    height: 3px;
+    margin-left: 0px;
+    background-color: rgb(0, 0, 0);
+
+}
+.btn:hover {
+    color: rgb(253, 253, 253);
+    background: radial-gradient(circle, rgb(9, 40, 139) 0%, rgb(252, 255, 255) 130%);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+li {
+    font-size: 25px;
+    display: block;
+    text-align: center;
+    background: radial-gradient(ellipse, rgb(9, 33, 172) 0%, rgb(125, 213, 240) 90%);
+    color:white;
+    width: 23%;
+    height: 5%;
+    line-height: 33px;
+    border-radius: 5px;
+    border-color: black;
+    margin-bottom: 17px;
+}
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Weather Dashboard</title>
+      </head>
+
+<header>
+
+<h1>Weather Dashboard</h1>
+
+</header>
+
+<body>
+<main>
+<div>
+    <h2 id="Search">Search for a City:</h2>
+    <form id="searchform">
+        <label for="city"></label>
+        <input name="city" id="city" type="text" placeholder="Chicago" class="form-input w-20"/>
+        <button type="submit" class="btn" id="search">Search</button>
+      </form>
+
+</div>
+
+<hr id="line">
+ 
+<div>
+
+  <ul id="historylist"></ul>
+
+
+</div>
+
+<div>
+
+<p id="name"></p>
+<p id="desc"></p>
+<p id="temp"></p>
+<p id="wind"></p>
+<p id="humidity"></p>
+<p id="UV"></p>
+
+
+</div>
+
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+
+</html>
