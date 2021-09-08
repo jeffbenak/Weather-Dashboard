@@ -18,7 +18,7 @@ h1 {
 #Search {
     font-size: 32px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 3px;
+    line-height: 35px;
 }
 
 #city {
@@ -44,9 +44,10 @@ h1 {
 }
 
 #line {
-    width: 23%;
+    width: 96%;
     height: 3px;
     margin-left: 0px;
+    margin-top: 20px;
     background-color: rgb(0, 0, 0);
 
 }
@@ -65,7 +66,7 @@ li {
     text-align: center;
     background: radial-gradient(ellipse, rgb(9, 33, 172) 0%, rgb(125, 213, 240) 90%);
     color:white;
-    width: 23%;
+    width: 96%;
     height: 5%;
     line-height: 33px;
     border-radius: 5px;
@@ -73,4 +74,67 @@ li {
     margin-bottom: 17px;
 }
 
+#name {
+    font-weight: bold;
+    font-size: 30px;
+}
 
+
+.content {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 73%;
+    height: 250px;
+}
+
+#forecast {
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+ #day1 {
+    border-style: solid;
+    background-color: rgb(15, 35, 56);
+    color: white;
+    width: 15%;
+    height: 220px;
+    margin-left: 0px;
+} 
+
+#day2 {
+    border-style: solid;
+    background-color: rgb(15, 35, 56);
+    color: white;
+    width: 15%;
+    height: 220px;
+    margin-left: 20px;
+}
+
+#day3 {
+    border-style: solid;
+    background-color: rgb(15, 35, 56);
+    color: white;
+    width: 15%;
+    height: 220px;
+    margin-left: 20px;
+}
+
+#day4 {
+    border-style: solid;
+    background-color: rgb(15, 35, 56);
+    color: white;
+    width: 15%;
+    height: 220px;
+    margin-left: 20px;
+}
+
+#day5 {
+    border-style: solid;
+    background-color: rgb(15, 35, 56);
+    color: white;
+    width: 15%;
+    height: 220px;
+    margin-left: 20px;
+}

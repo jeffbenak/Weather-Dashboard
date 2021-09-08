@@ -8,12 +8,18 @@ var searchButton = $('#search');
 
 var APIKey = 'fbb08152a4c7efaee1be8de10432c3f7';
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + searchCity + "&appid=" + APIKey;
 
 
 
 
 var historyCity = [];
+
+
+$(document).ready(function() {
+  $(".content").hide();
+
+});
 
 function onload() {
     if(localStorage.getItem('city') != '') {
@@ -30,6 +36,8 @@ function addSearch(searchSave) {
 function searchBtn(event) {
     event.preventDefault();
 
+    $(".content").show();
+
     var searchCity = $('input[name="city"]').val();
 
     if (!searchCity) {
@@ -45,45 +53,91 @@ function searchBtn(event) {
     historyList.append(searchHistoryItem);
     
 
-    // $('input[name="city"]').val('');
 
 }
 
 function getApi(queryURL) {
   var searchCity = $('input[name="city"]').val();
-  //console.log(searchCity);
-  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIKey;
+  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIKey + "&units=imperial";
+
+
   fetch(queryURL)
     .then(response => response.json())
     .then(data => {
         var nameVal = data['name'];
-        var descVal = data['weather'][0]['description'];
         var tempVal = data['main']['temp'];
         var windVal = data['wind']['speed'];
         var humidityVal = data['main']['humidity'];
-        //var UVVal = data[]
 
+        var lon = data['coord']['lon'];
+        var lat = data['coord']['lat'];
+
+
+        var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial";
         var name = $('#name');
-        var desc = $('#desc');
         var temp = $('#temp');
         var wind = $('#wind');
         var humidity = $('#humidity');
-        //var UV = $('#UV');
 
-        name.html(nameVal);
-        desc.html(descVal);
-        temp.html(tempVal);
-        wind.html(windVal);
-        humidity.html(humidityVal);
-      //  UV.innerHTML = UVVal;
-      console.log(data);
-      console.log(tempVal);
-      console.log(name);
-      console.log(searchCity);
+        var icon = "http://openweathermap.org/img/wn/" + data['weather'][0]['icon'] + ".png";
 
+        var iconEL = $("<img>").attr("src", icon);
 
+        name.html(nameVal + "("+ moment().format('l') +")");
+        name.append(iconEL);
+        temp.html("Temp: " + tempVal + " °F");
+        wind.html("Wind: " + windVal + " MPH");
+        humidity.html("Humidity: " + humidityVal + " %");
+        console.log(data);
+
+      return fetch(queryURL2) 
     })
+    .then(response => response.json())
+      .then(data =>{
+
+         var UVVal = $('#UV');
+         var UVVal = data['current']['uvi'];
+         console.log(data);
+
+
+         let color = "green";
+
+         if (UVVal > 5) {
+           color = "red";
+         };
+
+
+
+
+        
+          var UV = $('#UV');
+        
+        
+          UV.html("UV Index: " + UVVal);
+
+
     
+
+
+          for (i=1; i<7; i++) {
+            var weatherDiv = $('#day' + i);
+            $('h5').css({"font-weight":"bold", "line-height":"40px"});
+            var date = $('<h5>').text("("+ moment().format('l') + ")");
+            var icon2 = "http://openweathermap.org/img/wn/" + data['daily'][i]['weather'][0]['icon'] + ".png";
+            var iconEL2 = $("<img>").attr("src", icon2 );
+            var temp = $('<p>').text("Temp: " + data['daily'][i]['temp']['day'] + " °F");
+            var wind = $('<p>').text("Wind: " + data['daily'][i]['wind_speed'] + " MPH");
+            var humidity = $('<p>').text("Humidity: " + data['daily'][i]['humidity'] + " %");
+
+            //var wind = $()
+            weatherDiv.append(date);
+            weatherDiv.append(iconEL2);
+            weatherDiv.append(temp);
+            weatherDiv.append(wind);
+            weatherDiv.append(humidity);
+          }
+        
+      })
   
 }
 
@@ -92,6 +146,6 @@ function getApi(queryURL) {
 
 searchForm.on('submit', searchBtn);
 searchButton.on('click', getApi);
-//getApi(queryURL);
+
 
 
