@@ -58,7 +58,7 @@ function searchBtn(event) {
 
 function getApi(queryURL) {
   var searchCity = $('input[name="city"]').val();
-  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIKey + "&units=imperial";
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + APIKey + "&units=imperial";
 
 
   fetch(queryURL)
@@ -79,7 +79,7 @@ function getApi(queryURL) {
         var wind = $('#wind');
         var humidity = $('#humidity');
 
-        var icon = "http://openweathermap.org/img/wn/" + data['weather'][0]['icon'] + ".png";
+        var icon = "https://openweathermap.org/img/wn/" + data['weather'][0]['icon'] + ".png";
 
         var iconEL = $("<img>").attr("src", icon);
 
